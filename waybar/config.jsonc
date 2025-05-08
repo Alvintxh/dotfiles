@@ -1,81 +1,132 @@
 {
-  "layer": "top",
-  "position": "top",
-  "height": 24,
-  "spacing": 5,
-  "modules-left": ["hyprland/workspaces"],
-  "modules-center": ["hyprland/window"],
-  "modules-right": ["custom/clash","custom/appmenu","tray","idle_inhibitor","cpu","memory","battery","pulseaudio","clock"],
-
-  "hyprland/window": {
-    "format": "{title}"
-  },
-
-  "idle_inhibitor": {
-    "format": "{icon}",
-    "format-icons": {
-      "activated": "\uf06e",
-      "deactivated": "\uf070"
-    }
-  },
-  
-"custom/appmenu":{
-		"format":"APP",
-		"on-click":"wofi --show drun",
+	"layer": "top",
+	"position": "top",
+	"height": 24,
+	"spacing": 5,
+	"modules-left": [
+		"custom/arch",
+		"hyprland/workspaces"
+	],
+	"modules-center": [
+		"hyprland/window"
+	],
+	"modules-right": [
+		"tray",
+		"custom/clash",
+		"custom/appmenu",
+		"custom/wallpaper",
+		//	"idle_inhibitor",
+		"cpu",
+		"memory",
+		"network",
+		"bluetooth",
+		"battery",
+		"pulseaudio",
+		"clock",
+		"custom/hyprlock"
+	],
+	"hyprland/window": {
+		"format": "{title}"
 	},
-
-"custom/clash":{
-        	"format": "Clsah",
-        	"on-click": "~/.config/waybar/scripts/clash.sh",
-		"on-click-right":"~/.config/waybar/scripts/clash_status.sh"
-        },
-
-"cpu":{ 
-    		"interval": 10, 
-    		"format": "CPU:{usage}%",
-        },
-
-  "memory": {
-    "interval": 30,
-    "format": "RAM:{used:0.1f}GiB({percentage}%)"
-  },
-
-  "battery": {
-    "bat": "BAT0",
-    "states": {
-      "good": 95,
-      "warning": 30,
-      "critical": 5
-    },
-    "format": "🔋:{capacity}%",
-    "format-charging": "🔋:{capacity}%(charging)",
-    "format-plugged": "🔋:{capacity}%(plugged)",
-  },
-
-  "clock": {
-    "format": "{:%Y/%m/%d %H:%M}",
-    "tooltip-format": "<tt><small>{calendar}</small></tt>",
-    "calendar": {
-      "format": {
-        "months": "<span color='#ffead3'><b>{}</b></span>",
-        "today": "<span color='#ff6699'><b>{}</b></span>"
-      }
-    }
-  },
-
-  "pulseaudio": {
-    "format": "{icon} {volume}%",
-    "format-icons": {
-      "default": ["\uf026", "\uf027", "\uf028"]
-    },
-    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
-    "on-click-right": "pavucontrol",
-    "format-muted": "\uf00d {volume}%"
-  },
-
-  "tray": {
-    "icon-size": 20,
-    "spacing": 10
-  },
-
+	"idle_inhibitor": {
+		"format": "{icon}",
+		"format-icons": {
+			"activated": "\uf06e",
+			"deactivated": "\uf070"
+		}
+	},
+	"custom/appmenu": {
+		"format": "",
+		"on-click": "wofi --show drun"
+	},
+	"custom/hyprlock": {
+		"format": "󰌾",
+		"on-click": "hyprlock"
+	},
+	"custom/clash": {
+		"format": "",
+		"on-click": "~/.config/waybar/scripts/clash.sh",
+		"on-click-right": "~/.config/waybar/scripts/clash_status.sh"
+	},
+	"custom/wallpaper": {
+		"format": "󰸉",
+		"on-click": "~/.config/hypr/scripts/random_hyprpaper.sh"
+	},
+	"custom/arch": {
+		"format": ""
+	},
+	"cpu": {
+		"interval": 10,
+		"format": ":{usage}%"
+	},
+	"memory": {
+		"interval": 30,
+		"format": "󰍛:{used:0.1f}GiB({percentage}%)"
+	},
+	"battery": {
+		"states": {
+			// "good": 95,
+			"warning": 30,
+			"critical": 15
+		},
+		"format": "{icon}{capacity}%",
+		"format-charging": "{capacity}%",
+		"format-plugged": "{capacity}%",
+		"format-alt": "{icon}{time}",
+		// "format-good": "", // An empty format will hide the module
+		// "format-full": "",
+		"format-icons": [
+			" ",
+			" ",
+			" ",
+			" ",
+			" "
+		]
+	},
+	"network": {
+		"format": "{ifname}",
+		"format-wifi": " {signalStrength}%",
+		"format-ethernet": " {ipaddr}",
+		"format-disconnected": "Not connected", //An empty format will hide the module.
+		"tooltip-format": " {ifname} via {gwaddri}",
+		"tooltip-format-wifi": " {essid}({signalStrength}%)",
+		"tooltip-format-ethernet": " {ifname}({ipaddr}/{cidr})",
+		"tooltip-format-disconnected": "Disconnected",
+		"max-length": 50,
+		"on-click": "kitty -e nmtui"
+	},
+	"bluetooth": {
+		"format-disabled": "",
+		"format-off": "",
+		"interval": 30,
+		"on-click": "blueman-manager",
+		"format-no-controller": ""
+	},
+	"clock": {
+		"format": "{:%Y/%m/%d %H:%M}",
+		"tooltip-format": "<tt><small>{calendar}</small></tt>",
+		"calendar": {
+			"format": {
+				"months": "<span color='#ffead3'><b>{}</b></span>",
+				"today": "<span color='#ff6699'><b>{}</b></span>"
+			}
+		}
+	},
+	"pulseaudio": {
+		"format": "{icon} {volume}%",
+		"format-icons": {
+			"default": [
+				"\uf026",
+				"\uf027",
+				"\uf028"
+			]
+		},
+		"on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+		"on-click-right": "pavucontrol",
+		"format-muted": "\uf00d {volume}%"
+	},
+	"tray": {
+		"icon-size": 20,
+		"spacing": 10
+	}
 }
