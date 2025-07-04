@@ -36,7 +36,6 @@ border_style = { fg = "#665c54" }
 
 # : }}}
 
-<<<<<<< HEAD
 # : Mode {{{
 
 [mode]
@@ -55,10 +54,6 @@ unset_alt = { fg = "#a89984", bg = "#504945" }
 sep_left = { open = "\ue0be", close = "\ue0b8" }
 sep_right = { open = "\ue0be", close = "\ue0b8" }
 overall = { }
-=======
-# : Status {{{
-
-[status]
 separator_open = "\ue0be"
 separator_close = "\ue0b8"
 separator_style = { fg = "#3c3836", bg = "#3c3836" }
@@ -67,7 +62,6 @@ separator_style = { fg = "#3c3836", bg = "#3c3836" }
 mode_normal = { fg = "#282828", bg = "#a89984", bold = true }
 mode_select = { fg = "#282828", bg = "#fe8019", bold = true }
 mode_unset = { fg = "#282828", bg = "#b8bb26", bold = true }
->>>>>>> e2ff30ee1608ed1b4cc70e66159e46ba5bf70b7d
 
 # Progress
 progress_label = { fg = "#ebdbb2", bold = true }
@@ -75,29 +69,23 @@ progress_normal = { fg = "#504945", bg = "#3c3836" }
 progress_error = { fg = "#fb4934", bg = "#3c3836" }
 
 # Permissions
-<<<<<<< HEAD
 perm_type = { fg = "#504945" }
 perm_read = { fg = "#b8bb26" }
 perm_write = { fg = "#fb4934" }
 perm_exec = { fg = "#b8bb26" }
 perm_sep = { fg = "#665c54" }
-=======
 permissions_t = { fg = "#504945" }
 permissions_r = { fg = "#b8bb26" }
 permissions_w = { fg = "#fb4934" }
 permissions_x = { fg = "#b8bb26" }
 permissions_s = { fg = "#665c54" }
->>>>>>> e2ff30ee1608ed1b4cc70e66159e46ba5bf70b7d
 
 # : }}}
 
 # : Select {{{
 
-<<<<<<< HEAD
 [pick]
-=======
 [select]
->>>>>>> e2ff30ee1608ed1b4cc70e66159e46ba5bf70b7d
 border = { fg = "#458588" }
 active = { fg = "#d3869b", bold = true }
 inactive = {}
