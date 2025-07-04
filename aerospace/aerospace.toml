@@ -43,6 +43,11 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 # Also see: https://nikitabobko.github.io/AeroSpace/goodies#disable-hide-app
 automatically-unhide-macos-hidden-apps = false
 
+[[on-window-detected]]
+    if.during-aerospace-startup = false
+    check-further-callbacks = true
+    run = 'layout floating'  # The callback itself
+
 # Possible values: (qwerty|dvorak|colemak)
 # See https://nikitabobko.github.io/AeroSpace/guide#key-mapping
 [key-mapping]
@@ -57,8 +62,8 @@ automatically-unhide-macos-hidden-apps = false
 #                 See:
 #                 https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
 [gaps]
-    inner.horizontal = 0
-    inner.vertical =   0
+    inner.horizontal = 3
+    inner.vertical =   3
     outer.left =       0
     outer.bottom =     0
     outer.top =        0
@@ -142,7 +147,7 @@ automatically-unhide-macos-hidden-apps = false
  
 
 
-    # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
+    # See: hrtps://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
     alt-tab = 'workspace-back-and-forth'
     # See: https://nikitabobko.github.io/AeroSpace/commands#move-workspace-to-monitor
     alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
@@ -152,7 +157,8 @@ automatically-unhide-macos-hidden-apps = false
 
     # 'service' binding mode declaration.
     # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
-    [mode.service.binding]
+
+[mode.service.binding]
     esc = ['reload-config', 'mode main']
     r = ['flatten-workspace-tree', 'mode main'] # reset layout
     f = ['layout floating tiling', 'mode main'] # Toggle between floating and tiling layout
@@ -169,3 +175,8 @@ automatically-unhide-macos-hidden-apps = false
     down = 'volume down'
     up = 'volume up'
     shift-down = ['volume set 0', 'mode main']
+
+
+
+
+
